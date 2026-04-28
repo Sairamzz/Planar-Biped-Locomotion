@@ -70,9 +70,9 @@ $$
 
 where the full state is:
 
-\[
+$$
 x = [q_1,\ q_2,\ q_3,\ \dot{q}_1,\ \dot{q}_2,\ \dot{q}_3]^T
-\]
+$$
 
 An **impact map** is also implemented to model the discrete velocity reset that occurs when the swing foot strikes the ground.
 
@@ -81,21 +81,21 @@ An **impact map** is also implemented to model the discrete velocity reset that 
 ### 2. Zero Dynamics and Virtual Constraints
 To design the gait, the actuated coordinates are constrained using **virtual constraints**:
 
-\[
+$$
 y =
 \begin{bmatrix}
 q_2 - b_2(s) \\
 q_3 - b_3(s)
 \end{bmatrix}
-\]
+$$
 
 where `b2(s)` and `b3(s)` are **fourth-order Bézier polynomials** and `s` is a normalized gait timing variable computed from `q1`.
 
 When the outputs satisfy `y = 0`, the robot evolves on the **zero-dynamics manifold**, reducing the walking dynamics to the cyclic variable:
 
-\[
+$$
 z = [q_1,\ \dot{q}_1]^T
-\]
+$$
 
 This reduced-order model is used for gait design and optimization.
 
@@ -104,9 +104,9 @@ This reduced-order model is used for gait design and optimization.
 ### 3. Optimization-Based Gait Design
 The gait is parameterized by the vector:
 
-\[
+$$
 f = [q_1^-,\ \dot{q}_1^-,\ \alpha_{2,3},\ \alpha_{2,4},\ \alpha_{2,5},\ \alpha_{3,3},\ \alpha_{3,4},\ \alpha_{3,5}]
-\]
+$$
 
 where:
 
@@ -128,21 +128,21 @@ The optimized gait is then applied to the **full nonlinear hybrid model**.
 
 A **feedback-linearizing controller** is used to regulate the virtual-constraint outputs. The output dynamics are written using Lie derivatives:
 
-\[
+$$
 \ddot{y} = L_f^2 h(x) + L_gL_fh(x)\,u
-\]
+$$
 
 and the control input is chosen as:
 
-\[
+$$
 u = (L_gL_fh)^{-1}(v - L_f^2h)
-\]
+$$
 
 with a PD stabilizing term:
 
-\[
+$$
 v = -K_p y - K_d \dot{y}
-\]
+$$
 
 This drives the full-order system toward the desired gait manifold during swing.
 
