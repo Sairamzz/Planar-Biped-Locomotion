@@ -46,10 +46,6 @@ After obtaining a reduced-order gait, the project evaluates whether that gait ca
 
 ## Robot Model
 
-
-<img width="497" height="552" alt="3_Link_Model" src="https://github.com/user-attachments/assets/6fa77573-3130-4468-8f40-78b13641922e" />
-
-
 The robot is a **three-link planar biped** made of:
 
 - a **stance leg**,
@@ -71,6 +67,8 @@ Key assumptions:
 - impact at foot strike is modeled as **instantaneous**.
 
 Because the stance foot is passive, the robot is **underactuated**.
+
+<img width="497" height="552" alt="3_Link_Model" src="https://github.com/user-attachments/assets/6fa77573-3130-4468-8f40-78b13641922e" />
 
 ---
 
@@ -178,12 +176,9 @@ The reduced-order zero-dynamics model yields a **periodic gait**, visible throug
 
 <img width="1439" height="930" alt="MP3_1" src="https://github.com/user-attachments/assets/e1177a80-4aca-4de0-8ba2-6eb2e253172e" />
 
+---
 
 ### Full-Order Walking
-
-
-<img width="495" height="1599" alt="MP4_4" src="https://github.com/user-attachments/assets/3c0862a2-b031-4d7b-a0a5-ec87e515b1b3" />
-
 
 When the optimized gait is applied to the full nonlinear model:
 
@@ -191,6 +186,10 @@ When the optimized gait is applied to the full nonlinear model:
 - the joint angles and velocities remain bounded,
 - the controller tracks the virtual constraints closely,
 - and the full-order phase portrait shows convergence toward a repeating orbit.
+
+<img width="495" height="1599" alt="MP4_4" src="https://github.com/user-attachments/assets/3c0862a2-b031-4d7b-a0a5-ec87e515b1b3" />
+
+---
 
 ### Stability Analysis
 Stability is evaluated using:
@@ -202,22 +201,19 @@ The full-order phase portrait of $(q_1,\dot{q}_1)$ shows repeated walking cycles
 
 <img width="1120" height="840" alt="MP4_1" src="https://github.com/user-attachments/assets/3711be04-a605-4c37-8466-7d3ee85d4852" />
 
-
+---
 - **Joint angles and Angular velocities**
 
 The joint trajectories remain bounded and repeat consistently across steps. The stance leg, swing leg, and torso follow a clear walking pattern, while the joint velocities show periodic oscillations with resets at impact. This indicates that the controller is able to generate sustained and physically realistic walking.
 
-
 <img width="1120" height="840" alt="MP4_2" src="https://github.com/user-attachments/assets/8f943aa5-c0ec-410c-a37a-a17d94e5593d" />
 
-
+---
 - **Poincaré analysis**
 
 Step-to-step stability is evaluated using the post-impact state $(q_1^+,\dot{q}_1^+)$. The Poincaré error decreases rapidly and approaches zero within roughly 10 steps, showing convergence to a fixed point. This confirms that the closed-loop gait is asymptotically stable in the full-order hybrid model.
 
-
 <img width="2437" height="1191" alt="MP4_3" src="https://github.com/user-attachments/assets/2a01a471-df43-4edd-90bb-30ab6d83f854" />
-
 
 ---
 
