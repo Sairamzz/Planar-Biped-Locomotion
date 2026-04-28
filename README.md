@@ -64,9 +64,9 @@ The robot dynamics are derived using:
 
 The continuous swing-phase model is written in control-affine form:
 
-\[
+$$
 \dot{x} = f(x) + g(x)u
-\]
+$$
 
 where the full state is:
 
