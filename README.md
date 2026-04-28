@@ -110,7 +110,7 @@ $$
 
 where:
 
-- `q1^-`, `dq1^-` are the pre-impact reduced states,
+- $$ q_1^- $$, $$ \dot{q}_1^- $$ are the pre-impact reduced states,
 - the remaining values are selected Bézier coefficients for the swing leg and torso.
 
 The optimizer:
